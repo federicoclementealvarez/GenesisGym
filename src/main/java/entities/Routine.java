@@ -1,5 +1,7 @@
 package entities;
 
+import java.util.ArrayList;
+
 public class Routine {
 
 	private int id;
@@ -7,6 +9,7 @@ public class Routine {
 	private People client;
 	private int exerciseQuantity;
 	private String type;
+	private ArrayList<Exercise> exercises;
 	
 	
 	public Routine(int id, String name, int exerciseQuantity, String type) {
@@ -14,12 +17,14 @@ public class Routine {
 		this.type = type;
 		this.id = id;
 		this.exerciseQuantity = exerciseQuantity;
+		exercises = new ArrayList<Exercise>();
 	}
 	
 	public Routine(String name, String type, People client) {
 		this.name = name;
 		this.type = type;
 		this.client=client;
+		exercises = new ArrayList<Exercise>();
 	}
 	
 	public String getName() {
@@ -52,6 +57,14 @@ public class Routine {
 	}
 	public void setExerciseQuantity(int exerciseQuantity) {
 		this.exerciseQuantity = exerciseQuantity;
+	}
+
+	public ArrayList<Exercise> getExercises() {
+		return exercises;
+	}
+
+	public void setExercises(ArrayList<Exercise> exercises) {
+		this.exercises = exercises;
 	}
 	
 	

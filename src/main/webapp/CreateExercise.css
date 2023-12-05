@@ -1,0 +1,114 @@
+[data-theme="light"],
+:root:not([data-theme="dark"]) {
+  --primary: #dd8f26;
+  --primary-hover: #f57c00;
+  --primary-focus: rgba(251, 140, 0, 0.125);
+  --primary-inverse: rgb(0, 0, 0);
+}
+
+html,
+body {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  background-color: #faf9f5;
+}
+
+.noPlan{
+	width: 80%;
+	margin-left: auto;
+	margin-right: auto;
+	margin-top: 40%;
+	text-align: center;
+}
+
+#ups{
+	color:#dd8f26;
+}
+
+.inputContainer{
+	width: 65%;
+	display: block;
+	margin-left:auto;
+	margin-right:auto;
+	margin-bottom: 7%;
+}
+
+.numberInputContainer{
+	margin-top:-5%;
+	width: 30%;
+}
+
+#selectContainer{
+	width: 100%;
+	margin-top: 10%;
+}
+
+#selectExType{
+	margin-top: -5%;
+}
+
+#topInputContainer{
+	margin-top:15%;
+}
+
+#restTimeContainer{
+	display: flex;
+	width: 70%;
+}
+
+#secondsContainer{
+	margin:auto;
+	margin-top:5%;
+	display: block;
+	width: 50%;
+}
+
+#middleDiv{
+	margin:auto;
+	display: block;
+	width: 40%;
+}
+
+#topCard{
+	background-color:#8458B3;
+	display: block;
+	margin:auto;
+	height: 110px;
+}
+
+.title{
+	text-align: center;
+	margin-top: 0%;
+}
+
+
+button{
+	color: white;
+	font-weight: bold;
+}
+
+
+h1{
+	color:white;
+	margin-bottom: 10%;
+}
+
+h4,h3{
+	color:#dd8f26;
+}
+
+
+.buttonContainer{
+	width: 40%;
+	display: block;
+  	margin-left: auto;
+    margin-right: auto;
+    margin-top:18%
+}
+
+#buttonText{
+	color:white;
+	display: block;
+	margin:auto;
+}

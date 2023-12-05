@@ -1,0 +1,70 @@
+[data-theme="light"],
+:root:not([data-theme="dark"]) {
+  --primary: #dd8f26;
+  --primary-hover: #f57c00;
+  --primary-focus: rgba(251, 140, 0, 0.125);
+  --primary-inverse: rgb(0, 0, 0);
+}
+
+html,
+body {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  background-color: #faf9f5;
+}
+
+h1{
+	color:white;
+	margin-bottom: 10%;
+}
+
+
+#topCard{
+	background-color: rgb(255, 128, 0);
+	display: block;
+	margin:auto;
+	height: 110px;
+}
+
+.title{
+	text-align: center;
+	margin-top: 0%;
+}
+
+.articleContainer{
+	width: 80%;
+	margin-left:auto;
+	margin-right:auto;
+	display: block;
+	margin-top:40%;
+}
+
+
+.cardTitleContainer{
+	display: flex;
+}
+
+.center {
+  margin: auto;
+  width: 50%;
+  text-align: right;
+}
+
+#rate{
+	color:rgb(17, 208, 6);
+	font-size: 17px;
+}
+
+.includedActs{
+	text-align: left;
+	margin-bottom: -5%;
+}
+
+li{
+	color:#f57c00
+}
+
+h2{
+	color:#c67826;
+}

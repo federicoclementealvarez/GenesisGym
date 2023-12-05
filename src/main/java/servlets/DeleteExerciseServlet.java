@@ -8,31 +8,33 @@ import jakarta.servlet.http.HttpSession;
 import logic.Controller;
 
 import java.io.IOException;
-import java.util.ArrayList;
 
-import entities.People;
+import entities.Exercise;
 import entities.Routine;
 
-public class ShowRoutineServlet extends HttpServlet {
+
+public class DeleteExerciseServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		Controller cont = new Controller();
 		HttpSession session = request.getSession();
 		
-		int routineId = Integer.parseInt(request.getParameter("routineId"));
-		ArrayList<Routine> routines = (ArrayList<Routine>) session.getAttribute("routines");
+		int exerciseId = Integer.parseInt(request.getParameter("exerciseId"));
 		
-		Routine r = null;
+		cont.deleteExerciseById(exerciseId);
 		
-		for(Routine routine : routines) {
-			if(routine.getId()==routineId) {
-				r = routine;
+		Routine r = (Routine) session.getAttribute("routine");
+		
+		int i =0;
+		for(Exercise e: r.getExercises()) {
+			if(e.getId()==exerciseId) {
 				break;
 			}
+			i++;
 		}
 		
-		r.setExercises(cont.getExercisesByRoutine(r));
+		r.getExercises().remove(i);
 		
 		session.setAttribute("routine", r);
 		

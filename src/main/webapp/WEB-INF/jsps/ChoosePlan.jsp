@@ -45,7 +45,7 @@ ArrayList<Plan> plans =(ArrayList<Plan>) request.getAttribute("plans");
 						 				<p>Actividades que incluye:</p>
 						 		</div>
 						 		<ul>
-							 		<% for(Activity act:plan.getActivities()){%>
+							 		<% for(Activity act: (ArrayList<Activity>) plan.getActivities()){%>
 							 			<li><%=act.getName()%></li>
 							 		<% }%>
 						 		</ul>

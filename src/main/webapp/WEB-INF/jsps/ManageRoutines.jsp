@@ -40,20 +40,20 @@
 						</div>
 						<form method="post" action="ShowRoutineServlet">
 							<div class="cardButtonContainer">
-								<button type="submit">Ver</button>
+								<button value=<%=r.getId()%> name="routineId" type="submit">Ver</button>
 							</div>
 						</form>
 					</div>
 				  	<div class="cardDataContainer">
 				  		<h5>Tipo de rutina: </h5>
 				  		<div class="pContainer">
-				  			<p class="data"><%=r.getType()%></p>
+				  			<p><%=r.getType()%></p>
 				  		</div>
 				  	</div>
 				  	<div class="cardDataContainer" id="bottomContainer">
 				  		<h5>Cantidad de ejercicios: </h5>
 				  		<div class="pContainer">
-				  			<p class="data"><%=r.getExerciseQuantity()%></p>
+				  			<p><%=r.getExerciseQuantity()%></p>
 				  		</div>
 				  	</div>
 				</article>

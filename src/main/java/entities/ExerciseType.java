@@ -1,14 +1,27 @@
 package entities;
-import java.time.LocalTime;
 
 public class ExerciseType {
 
 	private int id;
 	private String name;
 	private String description;
-	private LocalTime duration;
 	private Activity activity;
 	
+	
+	public ExerciseType(String name, String description) {
+		this.name = name;
+		this.description = description;
+	}
+	
+	public ExerciseType(int id, String name) {
+		this.id = id;
+		this.name = name;
+	}
+	
+	public ExerciseType(int id) {
+		this.id = id;
+	}
+
 	public int getId() {
 		return id;
 	}
@@ -26,12 +39,6 @@ public class ExerciseType {
 	}
 	public void setDescription(String description) {
 		this.description = description;
-	}
-	public LocalTime getDuration() {
-		return duration;
-	}
-	public void setDuration(LocalTime duration) {
-		this.duration = duration;
 	}
 	public Activity getActivity() {
 		return activity;

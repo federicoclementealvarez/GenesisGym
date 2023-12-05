@@ -10,33 +10,26 @@ import logic.Controller;
 import java.io.IOException;
 import java.util.ArrayList;
 
+import entities.Plan;
 import entities.People;
-import entities.Routine;
+import entities.ExerciseType;
 
-public class ShowRoutineServlet extends HttpServlet {
+public class CreateExerciseServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
+
 
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		Controller cont = new Controller();
 		HttpSession session = request.getSession();
 		
-		int routineId = Integer.parseInt(request.getParameter("routineId"));
-		ArrayList<Routine> routines = (ArrayList<Routine>) session.getAttribute("routines");
+		People p = (People) session.getAttribute("user");
+		Plan plan = p.getPlan();
 		
-		Routine r = null;
+		ArrayList<ExerciseType> exTypes = cont.getExerciseTypesByPlan(plan);
 		
-		for(Routine routine : routines) {
-			if(routine.getId()==routineId) {
-				r = routine;
-				break;
-			}
-		}
+		session.setAttribute("exerciseTypes", exTypes);
 		
-		r.setExercises(cont.getExercisesByRoutine(r));
-		
-		session.setAttribute("routine", r);
-		
-		request.getRequestDispatcher("WEB-INF/jsps/ShowRoutine.jsp").forward(request, response);
+		request.getRequestDispatcher("WEB-INF/jsps/CreateExercise.jsp").forward(request, response);
 	}
 
 }

@@ -8,35 +8,27 @@ import jakarta.servlet.http.HttpSession;
 import logic.Controller;
 
 import java.io.IOException;
-import java.util.ArrayList;
 
 import entities.People;
-import entities.Routine;
+import entities.Plan;
 
-public class ShowRoutineServlet extends HttpServlet {
+
+public class ManagePlansServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
+       
 
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		Controller cont = new Controller();
 		HttpSession session = request.getSession();
 		
-		int routineId = Integer.parseInt(request.getParameter("routineId"));
-		ArrayList<Routine> routines = (ArrayList<Routine>) session.getAttribute("routines");
+		People p = (People) session.getAttribute("user");
+		Plan plan = p.getPlan();
 		
-		Routine r = null;
+		plan.setActivities(cont.getActivitiesByPlan(plan));
 		
-		for(Routine routine : routines) {
-			if(routine.getId()==routineId) {
-				r = routine;
-				break;
-			}
-		}
+		session.setAttribute("plan", plan);
 		
-		r.setExercises(cont.getExercisesByRoutine(r));
-		
-		session.setAttribute("routine", r);
-		
-		request.getRequestDispatcher("WEB-INF/jsps/ShowRoutine.jsp").forward(request, response);
+		request.getRequestDispatcher("WEB-INF/jsps/ManagePlans.jsp").forward(request, response);
 	}
 
 }

@@ -39,7 +39,7 @@
       	<% if (clientFound=="true"){%>
       		<label style="color:red;">El DNI ingresado ya existe en el sistema</label>
       	<%}%>
-      	<input name="dni" type="text" placeholder="DNI"
+      	<input name="dni" type="number" placeholder="DNI"
       	<% if (clientFound=="true"){%> 
       		aria-invalid="true"
       	<%}%>

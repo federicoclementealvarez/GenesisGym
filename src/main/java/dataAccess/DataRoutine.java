@@ -74,4 +74,24 @@ public class DataRoutine {
             }
 		}
 	}
+	
+	public void deleteOne(Routine r) {
+		PreparedStatement stmt= null;
+		try {
+			stmt=DbConnector.getInstancia().getConn().
+					prepareStatement("delete from routine where id=?");
+			stmt.setInt(1, r.getId());
+			stmt.executeUpdate();
+			
+		}  catch (SQLException e) {
+            e.printStackTrace();
+		} finally {
+            try {
+                if(stmt!=null)stmt.close();
+                DbConnector.getInstancia().releaseConn();
+            } catch (SQLException e) {
+            	e.printStackTrace();
+            }
+		}
+	}
 }

@@ -15,6 +15,10 @@ public class Activity {
 		this.teacheable = teacheable;
 	}
 	
+	public Activity(String name) {
+		this.name=name;
+	}
+
 	public int getId() {
 		return id;
 	}

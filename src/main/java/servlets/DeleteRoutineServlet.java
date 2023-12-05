@@ -10,33 +10,33 @@ import logic.Controller;
 import java.io.IOException;
 import java.util.ArrayList;
 
-import entities.People;
 import entities.Routine;
 
-public class ShowRoutineServlet extends HttpServlet {
+
+public class DeleteRoutineServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		Controller cont = new Controller();
 		HttpSession session = request.getSession();
+		Routine r = (Routine) session.getAttribute("routine");
+		cont.deleteRoutine(r);
 		
-		int routineId = Integer.parseInt(request.getParameter("routineId"));
 		ArrayList<Routine> routines = (ArrayList<Routine>) session.getAttribute("routines");
 		
-		Routine r = null;
-		
-		for(Routine routine : routines) {
-			if(routine.getId()==routineId) {
-				r = routine;
+		int i =0;
+		for(Routine routine: routines) {
+			if(routine.getId()==r.getId()) {
 				break;
 			}
+			i++;
 		}
 		
-		r.setExercises(cont.getExercisesByRoutine(r));
+		routines.remove(i);
 		
-		session.setAttribute("routine", r);
+		session.setAttribute("routines", routines);
 		
-		request.getRequestDispatcher("WEB-INF/jsps/ShowRoutine.jsp").forward(request, response);
+		request.getRequestDispatcher("WEB-INF/jsps/ManageRoutines.jsp").forward(request, response);
 	}
 
 }

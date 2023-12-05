@@ -64,7 +64,7 @@ else{
 	</div>
 	<div class="cardContainer">
 		<div class="eachCardContainer">
-			<form>
+			<form action="ManagePlansServlet" method="post">
 				<article id="planCard">
 					<h4 class="insideText">Mi Plan</h4>
 					<button type="submit" class="insideButton">Ver</button>

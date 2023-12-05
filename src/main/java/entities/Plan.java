@@ -1,23 +1,23 @@
 package entities;
-import java.util.LinkedList;
+import java.util.ArrayList;
 
 public class Plan {
 
 	private int id;
 	private String name;
 	private Double rate;
-	private LinkedList<Activity> activities;
+	private ArrayList<Activity> activities;
 	
 	public Plan(int id, String name, Double rate) {
 		this.id = id;
 		this.name = name;
 		this.rate = rate;
-		activities = new LinkedList<Activity>();
+		activities = new ArrayList<Activity>();
 	}
 	
 	public Plan(int id) {
 		this.id = id;
-		activities = new LinkedList<Activity>();
+		activities = new ArrayList<Activity>();
 	}
 	
 	
@@ -39,10 +39,10 @@ public class Plan {
 	public void setRate(Double rate) {
 		this.rate = rate;
 	}
-	public LinkedList<Activity> getActivities() {
+	public ArrayList<Activity> getActivities() {
 		return activities;
 	}
-	public void setActivities(LinkedList<Activity> activities) {
+	public void setActivities(ArrayList<Activity> activities) {
 		this.activities = activities;
 	}
 	

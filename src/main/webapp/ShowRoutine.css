@@ -1,0 +1,142 @@
+[data-theme="light"],
+:root:not([data-theme="dark"]) {
+  --primary: #dd8f26;
+  --primary-hover: #f57c00;
+  --primary-focus: rgba(251, 140, 0, 0.125);
+  --primary-inverse: rgb(0, 0, 0);
+}
+
+html,
+body {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  background-color: #faf9f5;
+}
+
+.noRoutines{
+	margin:40px;
+	text-align: center;
+}
+
+#topCard{
+	background-color:#8458B3;
+	display: block;
+	margin:auto;
+	height: 110px;
+}
+
+.title{
+	text-align: center;
+	margin-top: 0%;
+}
+
+
+button{
+	color: white;
+	font-weight: bold;
+}
+
+
+h1{
+	color:white;
+	margin-bottom: 10%;
+}
+
+h3{
+	color:#dd8f26;
+}
+
+.cardContainer{
+	width: 80%;
+	margin: auto;
+	height: 50%;
+}
+
+
+.pContainer{
+	margin-top: auto;
+	margin-bottom: auto;
+	margin-left:10px;
+	display: block;
+}
+
+.data{
+	color:#f57c00;
+}
+
+.cardTopContainer{
+	display: flex;
+}
+
+.cardButtonContainer{
+	margin-top:auto;
+	margin-bottom:auto;
+	display: block;
+	margin-right: 10px;
+	margin-left: 40px;
+}
+
+.cardDataContainer{
+	display: flex;
+	margin-bottom: -5%;
+	margin-top: -5%;
+}
+
+.cardNameContainer{
+	margin-top:auto;
+	margin-bottom:auto;
+	text-align: left;
+	display: block;
+}
+
+#bottomContainer{
+	margin-bottom: -10%;
+}
+
+#topContainer{
+	margin-top: -10%;
+	margin-bottom: 5%;
+}
+
+.buttonContainer{
+	width: 40%;
+	display: block;
+  	margin-left: auto;
+    margin-right: auto;
+    margin-top: 27%;
+}
+
+button{
+	display: flex;
+}
+
+#buttonPlus{
+	color:white;
+	display: block;
+	margin:auto;
+}
+
+#buttonText{
+	color:white;
+	display: block;
+	margin:auto;
+}
+
+#dropButton{
+	background-color:rgb(225, 0, 0);
+	
+}
+
+#exerciseTypeDesc{
+	color: rgb(103, 103, 103);
+	font-weight: 300;
+}
+
+.bottomButtonContainer{
+	width: 40%;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+	margin-top:10%;
+}
