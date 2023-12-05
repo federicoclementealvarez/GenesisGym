@@ -1,0 +1,69 @@
+[data-theme="light"],
+:root:not([data-theme="dark"]) {
+  --primary: #dd8f26;
+  --primary-hover: #f57c00;
+  --primary-focus: rgba(251, 140, 0, 0.125);
+  --primary-inverse: rgb(0, 0, 0);
+}
+
+
+html,
+body {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  background-color: #faf9f5;
+}
+
+.logoContainer{
+	display: block;
+	margin:0 auto;
+	width: 100%;
+	margin-top: 15%;
+	margin-bottom: 22%;
+}
+
+#logo{
+	margin: auto;
+}
+
+
+button{
+	color: white;
+	font-weight: bold;
+}
+
+input{
+	margin-bottom: 25%;
+}
+
+#inputContainer{
+	width: 65%;
+	margin:auto;
+	display: block;
+	margin-bottom: 17%;
+}
+
+#buttonContainer{
+	width: 55%;
+	display: block;
+	margin: auto;
+	margin-bottom: 25%;
+}
+
+h4{
+	color:#c67826;
+}
+.pContainer{
+	text-align: center;
+}
+
+.fieldsetDiv{
+	display: flex;
+	margin-top: 6%;
+	margin-bottom: -20%;
+}
+
+fieldset{
+	margin-top: 7%
+}

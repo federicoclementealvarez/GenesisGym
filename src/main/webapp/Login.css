@@ -1,0 +1,59 @@
+[data-theme="light"],
+:root:not([data-theme="dark"]) {
+  --primary: #dd8f26;
+  --primary-hover: #f57c00;
+  --primary-focus: rgba(251, 140, 0, 0.125);
+  --primary-inverse: rgb(0, 0, 0);
+}
+
+
+html,
+body {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  background-color: #faf9f5;
+}
+
+img{
+	display: block;
+	margin:auto;
+	width: 100%;
+	margin-top: 25%;
+	margin-bottom: 35%;
+}
+
+p{
+	color: #af6126;
+}
+
+button{
+	color: white;
+	font-weight: bold;
+}
+
+#dni{
+	margin-bottom: 25%
+}
+
+#inputContainer{
+	width: 65%;
+	display: block;
+	margin:auto;
+	margin-bottom: 20%;
+}
+
+#buttonContainer{
+	width: 55%;
+	display: block;
+	margin: auto;
+	margin-bottom: 25%;
+}
+
+#pContainer{
+	text-align: center;
+}
+
+a{
+	text-decoration: underline;
+}

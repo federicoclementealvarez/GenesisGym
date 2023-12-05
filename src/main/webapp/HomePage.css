@@ -1,0 +1,150 @@
+[data-theme="light"],
+:root:not([data-theme="dark"]) {
+  --primary: #dd8f26;
+  --primary-hover: #f57c00;
+  --primary-focus: rgba(251, 140, 0, 0.125);
+  --primary-inverse: rgb(0, 0, 0);
+}
+
+html,
+body {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  background-color: #faf9f5;
+}
+
+img{
+	display: block;
+	margin:auto;
+	width: 100%;
+	margin-top: 15%;
+	margin-bottom: 20%;
+}
+
+button{
+	color: white;
+	font-weight: bold;
+}
+
+.includedActs{
+	text-align: left;
+	margin-bottom: -5%;
+}
+
+h2{
+	color:#c67826;
+}
+
+h4{
+	color:#dd8f26;
+}
+
+.mainCardContainer{
+	width: 80%;
+	display: center;
+	margin: auto;
+	height: 0%;
+}
+
+.eachCardContainer{
+	width: 45%;
+}
+
+.middleDiv{
+	width: 10%;
+}
+
+.cardContainer{
+	width: 80%;
+	margin: auto;
+	overflow: hidden;
+	display: flex;
+	height: 50%;
+	box-shadow:none;
+	--card-box-shadow:none;
+}
+
+.insideText{
+	margin-top: -10%;
+	margin-bottom: 20%;
+	
+}
+
+.insideButton{
+	margin-bottom: -10%;
+}
+
+#routCard{
+	border-color:#8458B3;
+	background-color: rgb(254, 252, 237);
+	border-style: solid;
+	text-align: center;
+	height: 50%;
+}
+
+#classCard{
+	border-color: #e62739;
+	background-color: rgb(254, 252, 237);
+	border-style: solid;
+	text-align: center;
+}
+
+#payCard{
+	border-color:#7dce94;
+	background-color: rgb(254, 252, 237);
+	border-style: solid;
+	text-align: center;
+}
+
+#planCard{
+	border-color: rgb(255, 128, 0);
+	background-color: rgb(254, 252, 237);
+	border-style: solid;
+	text-align: center;
+}
+
+
+
+.cardDataContainer{
+	margin-bottom: -5%;
+	margin-top: -5%;
+	margin-left: 5%;
+}
+
+.data{
+	margin-top: -10%;
+	margin-left: 4%;
+	margin-bottom: 10%;
+}
+
+p{
+	font-weight: 500;
+}
+
+#radioButton{
+	width: 25px;
+	height: 25px;
+	text-align: right;
+}
+
+.articleContainer{
+	width: 80%;
+}
+
+
+.cardTitleContainer{
+	display: flex;
+}
+
+.center {
+  margin: auto;
+  width: 50%;
+  text-align: right;
+}
+
+#cardHeader{
+	display: center;
+	margin:auto;
+	text-align: center;
+}

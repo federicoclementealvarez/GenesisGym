@@ -1,0 +1,96 @@
+[data-theme="light"],
+:root:not([data-theme="dark"]) {
+  --primary: #dd8f26;
+  --primary-hover: #f57c00;
+  --primary-focus: rgba(251, 140, 0, 0.125);
+  --primary-inverse: rgb(0, 0, 0);
+}
+
+html,
+body {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  background-color: #faf9f5;
+}
+
+img{
+	display: block;
+	margin:auto;
+	width: 100%;
+	margin-top: 15%;
+	margin-bottom: 20%;
+}
+
+button{
+	color: white;
+	font-weight: bold;
+}
+
+.includedActs{
+	text-align: left;
+	margin-bottom: -5%;
+}
+
+h2{
+	color:#c67826;
+}
+
+.cardContainer{
+	display: flex;
+	margin-bottom: -10%;
+}
+
+.radioButtonContainer{
+	text-align: rigth;
+	margin: auto;
+}
+
+#radioButton{
+	width: 25px;
+	height: 25px;
+	text-align: right;
+}
+
+.articleContainer{
+	width: 80%;
+}
+
+
+.cardTitleContainer{
+	display: flex;
+}
+
+.center {
+  margin: auto;
+  width: 50%;
+  text-align: right;
+}
+
+#rate{
+	color:rgb(17, 208, 6);
+	font-size: 17px;
+}
+
+.pContainer{
+	text-align: center;
+	margin-bottom: -10%;
+}
+
+li{
+	color:#f57c00
+}
+
+#inputContainer{
+	width: 80%;
+	display: block;
+	margin:auto;
+	margin-bottom: 10%;
+}
+
+#buttonContainer{
+	width: 55%;
+	display: block;
+	margin: auto;
+	margin-bottom: 20%;
+}

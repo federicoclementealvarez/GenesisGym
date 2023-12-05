@@ -1,0 +1,77 @@
+[data-theme="light"],
+:root:not([data-theme="dark"]) {
+  --primary: #dd8f26;
+  --primary-hover: #f57c00;
+  --primary-focus: rgba(251, 140, 0, 0.125);
+  --primary-inverse: rgb(0, 0, 0);
+}
+
+html,
+body {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  background-color: #faf9f5;
+}
+
+.inputContainer{
+	width: 65%;
+	display: block;
+	margin-left:auto;
+	margin-right:auto;
+	margin-bottom: 10%;
+	margin-top: 40%;
+}
+
+#topCard{
+	background-color:#8458B3;
+	display: block;
+	margin:auto;
+	height: 110px;
+}
+
+.title{
+	text-align: center;
+	margin-top: 0%;
+}
+
+
+button{
+	color: white;
+	font-weight: bold;
+}
+
+
+h1{
+	color:white;
+	margin-bottom: 10%;
+}
+
+h4{
+	color:#dd8f26;
+}
+
+
+.buttonContainer{
+	width: 40%;
+	display: block;
+  	margin-left: auto;
+    margin-right: auto;
+    margin-top:30%
+}
+
+#buttonText{
+	color:white;
+	display: block;
+	margin:auto;
+}
+
+p{
+	font-style: italic;
+	color: rgb(174, 174, 174);
+	text-align: center;
+	width: 80%;
+	margin-left: auto;
+	margin-right: auto;
+	font-size: 17px;
+}
