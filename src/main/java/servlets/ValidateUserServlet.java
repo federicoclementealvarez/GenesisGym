@@ -20,7 +20,7 @@ public class ValidateUserServlet extends HttpServlet {
 
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		People p = new People(Integer.parseInt( request.getParameter("dni") ) );
-		Controller cont = new Controller();
+		SignUpLoginController cont = new SignUpLoginController();
 		p.setPassword(request.getParameter("password"));
 		p=cont.getByDniAndPass(p);
 		if (p != null) {

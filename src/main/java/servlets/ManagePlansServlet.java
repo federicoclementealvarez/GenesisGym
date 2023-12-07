@@ -5,7 +5,7 @@ import jakarta.servlet.http.HttpServlet;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
 import jakarta.servlet.http.HttpSession;
-import logic.Controller;
+import logic.ManagePlansController;
 
 import java.io.IOException;
 
@@ -18,7 +18,7 @@ public class ManagePlansServlet extends HttpServlet {
        
 
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		Controller cont = new Controller();
+		ManagePlansController cont = new ManagePlansController();
 		HttpSession session = request.getSession();
 		
 		People p = (People) session.getAttribute("user");

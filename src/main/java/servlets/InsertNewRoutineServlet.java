@@ -5,7 +5,7 @@ import jakarta.servlet.http.HttpServlet;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
 import jakarta.servlet.http.HttpSession;
-import logic.Controller;
+import logic.ManageRoutineController;
 
 import java.io.IOException;
 
@@ -17,7 +17,7 @@ public class InsertNewRoutineServlet extends HttpServlet {
 
 	
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		Controller cont = new Controller();
+		ManageRoutineController cont = new ManageRoutineController();
 		HttpSession session = request.getSession();
 		People p = (People) session.getAttribute("user");
 		Routine r = new Routine(request.getParameter("routineName"),"Personal",p);

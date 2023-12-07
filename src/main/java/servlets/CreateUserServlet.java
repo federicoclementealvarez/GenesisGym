@@ -5,7 +5,7 @@ import jakarta.servlet.http.HttpServlet;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
 import jakarta.servlet.http.HttpSession;
-import logic.Controller;
+import logic.SignUpLoginController;
 
 import java.io.IOException;
 import java.time.LocalDate;
@@ -26,12 +26,12 @@ public class CreateUserServlet extends HttpServlet {
 
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		doGet(request, response);
-		Controller cont = new Controller();
+		SignUpLoginController cont = new SignUpLoginController();
 		People p = this.assignAttibutes(request, cont);
 		this.validateUser(p, cont, request, response);
 	}
 	
-	private void validateUser(People p, Controller cont, HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException{
+	private void validateUser(People p, SignUpLoginController cont, HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException{
 		request.setAttribute("teacherFound", null);
 		request.setAttribute("clientFound", null);
 		request.setAttribute("clientHasNoTeacher", null);
@@ -71,7 +71,7 @@ public class CreateUserServlet extends HttpServlet {
 		}
 	}
 	
-	private People assignAttibutes(HttpServletRequest request, Controller cont) throws ServletException{
+	private People assignAttibutes(HttpServletRequest request, SignUpLoginController cont) throws ServletException{
 		People teacher = null;
 		if (request.getParameter("teacherDni")!="") {
 			teacher = cont.getTeacherBasicInfo(Integer.parseInt(request.getParameter("teacherDni")));

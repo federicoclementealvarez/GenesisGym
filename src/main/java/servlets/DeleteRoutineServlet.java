@@ -5,7 +5,7 @@ import jakarta.servlet.http.HttpServlet;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
 import jakarta.servlet.http.HttpSession;
-import logic.Controller;
+import logic.ManageRoutineController;
 
 import java.io.IOException;
 import java.util.ArrayList;
@@ -17,7 +17,7 @@ public class DeleteRoutineServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		Controller cont = new Controller();
+		ManageRoutineController cont = new ManageRoutineController();
 		HttpSession session = request.getSession();
 		Routine r = (Routine) session.getAttribute("routine");
 		cont.deleteRoutine(r);

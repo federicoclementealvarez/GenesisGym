@@ -5,7 +5,7 @@ import jakarta.servlet.http.HttpServlet;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
 import jakarta.servlet.http.HttpSession;
-import logic.Controller;
+import logic.ManageExerciseController;
 
 import java.io.IOException;
 import java.util.ArrayList;
@@ -19,7 +19,7 @@ public class InsertNewExerciseServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		Controller cont = new Controller();
+		ManageExerciseController cont = new ManageExerciseController();
 		HttpSession session = request.getSession();
 		Routine r = (Routine) session.getAttribute("routine");
 		ExerciseType exType = new ExerciseType(Integer.parseInt(request.getParameter("exerciseTypeId")));

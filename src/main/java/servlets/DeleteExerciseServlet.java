@@ -5,7 +5,7 @@ import jakarta.servlet.http.HttpServlet;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
 import jakarta.servlet.http.HttpSession;
-import logic.Controller;
+import logic.ManageExerciseController;
 
 import java.io.IOException;
 
@@ -17,7 +17,7 @@ public class DeleteExerciseServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		Controller cont = new Controller();
+		ManageExerciseController cont = new ManageExerciseController();
 		HttpSession session = request.getSession();
 		
 		int exerciseId = Integer.parseInt(request.getParameter("exerciseId"));
