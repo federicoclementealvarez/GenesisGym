@@ -14,7 +14,7 @@
 
 
 ### Modelo
-![image](https://github.com/federicoclementealvarez/GenesisGym/blob/main/readMeImages/Modelo%20de%20dominio%20Genesis%20Gym%20.png)
+![image](https://github.com/federicoclementealvarez/GenesisGym/blob/main/readMeImages/Modelo%20de%20dominio%20Genesis%20Gym.png)
 
 *Link*: https://drive.google.com/file/d/1GgyPlLdbYP7tpO-X-rwJm4kdSw9BMhCg/view?usp=sharing
 
