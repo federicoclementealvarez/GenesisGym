@@ -28,7 +28,7 @@
 	
 	<%if(error != null && error.equals("used")){%>
 		<div style="width: 80%; margin: auto; padding: 10px; background-color: #ffcdd2; color: #b71c1c; border-radius: 5px; text-align: center; margin-bottom: 20px;">
-			No se puede eliminar el tipo de ejercicio porque estï¿½ siendo usado en rutinas activas.
+			No se puede eliminar el tipo de ejercicio porque está siendo usado en rutinas activas.
 		</div>
 	<%}%>
 
@@ -54,7 +54,7 @@
 						</form>
 					</div>
 				  	<div class="cardDataContainer" id="bottomContainer">
-				  		<h5>Descripciï¿½n: </h5>
+				  		<h5>Descripción: </h5>
 				  		<div class="pContainer">
 				  			<p><%=et.getDescription()%></p>
 				  		</div>

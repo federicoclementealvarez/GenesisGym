@@ -17,12 +17,12 @@
  <%ArrayList<Class> taughtClasses = (ArrayList<Class>) session.getAttribute("taughtClasses");
    String error = request.getParameter("error");%>
  
-<title>Genesis Gym - Clases Enseï¿½adas</title>
+<title>Genesis Gym - Clases Enseñadas</title>
 </head>
 <body>
 	<div>
 		<article id="topCard">
-			<h1 class="title">Clases Enseï¿½adas</h1>
+			<h1 class="title">Clases Enseñadas</h1>
 		</article>
 	</div>
 	
@@ -35,7 +35,7 @@
 	<div>
 		<%if(taughtClasses == null || taughtClasses.size() == 0){%>
 			<div class="noClasses">
-				<h3>Aï¿½n no tienes clases asignadas como profesor.</h3>
+				<h3>Aún no tienes clases asignadas como profesor.</h3>
 			</div>
 		<%}%>
 		<%if(taughtClasses != null && taughtClasses.size() > 0){
@@ -54,7 +54,7 @@
 						</form>
 					</div>
 				  	<div class="cardDataContainer">
-				  		<h5>Dï¿½a: </h5>
+				  		<h5>Día: </h5>
 				  		<div class="pContainer">
 				  			<p><%=c.getDay()%></p>
 				  		</div>

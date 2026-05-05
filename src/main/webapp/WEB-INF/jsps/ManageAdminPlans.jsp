@@ -18,18 +18,18 @@
  <%ArrayList<Plan> plans = (ArrayList<Plan>) session.getAttribute("allAdminPlans");
    String error = request.getParameter("error");%>
  
-<title>Genesis Gym - Gestiï¿½n de Planes</title>
+<title>Genesis Gym - Gestión de Planes</title>
 </head>
 <body>
 	<div>
 		<article id="topCard">
-			<h1 class="title">Gestiï¿½n de Planes</h1>
+			<h1 class="title">Gestión de Planes</h1>
 		</article>
 	</div>
 	
 	<%if(error != null && error.equals("used")){%>
 		<div style="width: 80%; margin: auto; padding: 10px; background-color: #ffcdd2; color: #b71c1c; border-radius: 5px; text-align: center; margin-bottom: 20px;">
-			No se puede eliminar el plan porque hay usuarios inscritos en ï¿½l.
+			No se puede eliminar el plan porque hay usuarios inscritos en él.
 		</div>
 	<%}%>
 

@@ -29,7 +29,7 @@
 	<div>
 		<%if(unpaidFees == null || unpaidFees.size() == 0){%>
 			<div class="noFees">
-				<h3>No tienes cuotas pendientes de pago. ï¿½Estï¿½s al dï¿½a!</h3>
+				<h3>No tienes cuotas pendientes de pago. ¡Estás al día!</h3>
 			</div>
 		<%}%>
 		<%if(unpaidFees != null && unpaidFees.size() > 0){
