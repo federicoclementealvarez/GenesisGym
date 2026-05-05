@@ -104,7 +104,25 @@ h4{
 	text-align: center;
 }
 
+#taughtCard{
+	border-color:#4db6ac;
+	background-color: rgb(254, 252, 237);
+	border-style: solid;
+	text-align: center;
+	height: 50%;
+	aspect-ratio: 1 / 1;
+	
+	display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 0.05rem;
+}
 
+#taughtCard h4 {
+    font-size: 1.2rem;
+    margin-bottom: 0.3rem;
+}
 
 .cardDataContainer{
 	margin-bottom: -5%;

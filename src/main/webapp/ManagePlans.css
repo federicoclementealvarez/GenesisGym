@@ -68,3 +68,42 @@ li{
 h2{
 	color:#c67826;
 }
+
+button{
+	color: white;
+	font-weight: bold;
+}
+
+button{
+	display: flex;
+}
+
+#buttonPlus{
+	color:white;
+	display: block;
+	margin:auto;
+}
+
+.buttonContainer{
+	width: 40%;
+	display: block;
+  	margin-left: auto;
+    margin-right: auto;
+    margin-top: 27%;
+}
+
+button{
+	display: flex;
+}
+
+#buttonPlus{
+	color:white;
+	display: block;
+	margin:auto;
+}
+
+#buttonText{
+	color:white;
+	display: block;
+	margin:auto;
+}

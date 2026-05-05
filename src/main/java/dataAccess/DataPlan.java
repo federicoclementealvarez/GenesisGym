@@ -121,5 +121,91 @@ public class DataPlan {
 		}
 		return(plans);
 	}
-	
+
+	public void insertOne(Plan p, String[] activityIds) {
+		PreparedStatement stmt = null;
+		ResultSet rs = null;
+		try {
+			stmt = DbConnector.getInstancia().getConn()
+					.prepareStatement("insert into plan(name, rate) values(?,?)", Statement.RETURN_GENERATED_KEYS);
+			stmt.setString(1, p.getName());
+			stmt.setDouble(2, p.getRate());
+			stmt.executeUpdate();
+			
+			rs = stmt.getGeneratedKeys();
+			if (rs != null && rs.next()) {
+				int idPlan = rs.getInt(1);
+				
+				PreparedStatement stmtRel = DbConnector.getInstancia().getConn()
+						.prepareStatement("insert into plan_activity(id_plan, id_activity) values(?,?)");
+				for (String idAct : activityIds) {
+					stmtRel.setInt(1, idPlan);
+					stmtRel.setInt(2, Integer.parseInt(idAct));
+					stmtRel.executeUpdate();
+				}
+				stmtRel.close();
+			}
+		} catch (SQLException e) {
+			e.printStackTrace();
+		} finally {
+			try {
+				if (rs != null) rs.close();
+				if (stmt != null) stmt.close();
+				DbConnector.getInstancia().releaseConn();
+			} catch (SQLException e) {
+				e.printStackTrace();
+			}
+		}
+	}
+
+	public boolean isUsed(int id) {
+		PreparedStatement stmt = null;
+		ResultSet rs = null;
+		boolean used = false;
+		try {
+			stmt = DbConnector.getInstancia().getConn()
+					.prepareStatement("select count(*) count from people where id_plan = ?");
+			stmt.setInt(1, id);
+			rs = stmt.executeQuery();
+			if (rs != null && rs.next()) {
+				used = rs.getInt("count") > 0;
+			}
+		} catch (SQLException ex) {
+			ex.printStackTrace();
+		} finally {
+			try {
+				if (rs != null) rs.close();
+				if (stmt != null) stmt.close();
+				DbConnector.getInstancia().releaseConn();
+			} catch (SQLException ex) {
+				ex.printStackTrace();
+			}
+		}
+		return used;
+	}
+
+	public void deleteOne(int id) {
+		PreparedStatement stmt = null;
+		try {
+			stmt = DbConnector.getInstancia().getConn()
+					.prepareStatement("delete from plan_activity where id_plan = ?");
+			stmt.setInt(1, id);
+			stmt.executeUpdate();
+			stmt.close();
+
+			stmt = DbConnector.getInstancia().getConn()
+					.prepareStatement("delete from plan where id = ?");
+			stmt.setInt(1, id);
+			stmt.executeUpdate();
+		} catch (SQLException e) {
+			e.printStackTrace();
+		} finally {
+			try {
+				if (stmt != null) stmt.close();
+				DbConnector.getInstancia().releaseConn();
+			} catch (SQLException e) {
+				e.printStackTrace();
+			}
+		}
+	}
 }

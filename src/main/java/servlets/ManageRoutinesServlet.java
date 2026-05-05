@@ -25,5 +25,9 @@ public class ManageRoutinesServlet extends HttpServlet {
 		session.setAttribute("routines",routines);
 		request.getRequestDispatcher("WEB-INF/jsps/ManageRoutines.jsp").forward(request, response);
 	}
+	
+	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		doPost(request, response);
+	}
 
 }

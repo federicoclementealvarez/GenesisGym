@@ -77,6 +77,11 @@
 			<button type="submit"><h3 id="buttonPlus">+</h3><h5 id="buttonText">Agregar Ejercicio</h5></button>
 		</div>
 	</form>
+	<div class="buttonContainer" style="margin-top: 5%;">
+		<button type="button" onclick="window.location.href='ManageRoutinesServlet'" style="background-color: #607d8b; border-color: #607d8b;">
+			<h5 id="buttonText">Volver</h5>
+		</button>
+	</div>
 	<form method="post" action="DeleteRoutineServlet">
 		<div class="bottomButtonContainer">
 			<button type="submit" id="dropButton"><h5 id="buttonText">Borrar Rutina</h5></button>

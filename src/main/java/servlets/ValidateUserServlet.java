@@ -35,5 +35,15 @@ public class ValidateUserServlet extends HttpServlet {
 			request.getRequestDispatcher("Login.jsp").forward(request, response);
 		}
 	}
+	
+	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		HttpSession session = request.getSession();
+		People p = (People) session.getAttribute("user");
+		if (p != null) {
+			request.getRequestDispatcher("WEB-INF/jsps/HomePage.jsp").forward(request, response);
+		} else {
+			response.sendRedirect("Login.jsp");
+		}
+	}
 
 }

@@ -6,44 +6,172 @@ import java.sql.SQLException;
 import java.util.ArrayList;
 
 import entities.Activity;
-import entities.Plan;
 
 public class DataActivity {
 
-	public ArrayList<Activity> getByPlan(Plan plan) {
+	public ArrayList<Activity> getAll() {
 		PreparedStatement stmt = null;
 		ResultSet rs = null;
 		ArrayList<Activity> activities = new ArrayList<Activity>();
 		try {
-			stmt= DbConnector.getInstancia().getConn()
-					.prepareStatement("select a.name\r\n"
-							+ "from activity a\r\n"
-							+ "inner join plan_activity pa\r\n"
-							+ "	on pa.id_activity=a.id\r\n"
-							+ "where pa.id_plan=?");
-			stmt.setInt(1, plan.getId());
+			stmt = DbConnector.getInstancia().getConn()
+					.prepareStatement("select id, name, description, teacheable from activity");
 			rs = stmt.executeQuery();
-			if (rs!=null) {
-				while(rs.next()) {
-					Activity act = new Activity(rs.getString("name"));
-					activities.add(act);
+			if (rs != null) {
+				while (rs.next()) {
+					Activity a = new Activity(
+							rs.getInt("id"),
+							rs.getString("name"),
+							rs.getString("description"),
+							rs.getBoolean("teacheable")
+					);
+					activities.add(a);
 				}
 			}
-		}
-		catch (SQLException ex){
-			ex.getStackTrace();
-		}
-		finally {
+		} catch (SQLException ex) {
+			ex.printStackTrace();
+		} finally {
 			try {
-				if(rs!=null) {rs.close();}
-				if(stmt!=null) {stmt.close();}
+				if (rs != null) rs.close();
+				if (stmt != null) stmt.close();
 				DbConnector.getInstancia().releaseConn();
-			}
-			catch (SQLException ex) {
-				ex.getStackTrace();
+			} catch (SQLException ex) {
+				ex.printStackTrace();
 			}
 		}
-		return(activities);
+		return activities;
 	}
 	
+	public ArrayList<Activity> getAllTeacheable() {
+		PreparedStatement stmt = null;
+		ResultSet rs = null;
+		ArrayList<Activity> activities = new ArrayList<Activity>();
+		try {
+			stmt = DbConnector.getInstancia().getConn()
+					.prepareStatement("select id, name, description, teacheable from activity where teacheable = True");
+			rs = stmt.executeQuery();
+			if (rs != null) {
+				while (rs.next()) {
+					Activity a = new Activity(
+							rs.getInt("id"),
+							rs.getString("name"),
+							rs.getString("description"),
+							rs.getBoolean("teacheable")
+					);
+					activities.add(a);
+				}
+			}
+		} catch (SQLException ex) {
+			ex.printStackTrace();
+		} finally {
+			try {
+				if (rs != null) rs.close();
+				if (stmt != null) stmt.close();
+				DbConnector.getInstancia().releaseConn();
+			} catch (SQLException ex) {
+				ex.printStackTrace();
+			}
+		}
+		return activities;
+	}
+	
+	public Activity getOne(int id) {
+		PreparedStatement stmt = null;
+		ResultSet rs = null;
+		Activity a = null;
+		try {
+			stmt = DbConnector.getInstancia().getConn()
+					.prepareStatement("select id, name, description, teacheable from activity where id = ?");
+			stmt.setInt(1, id);
+			rs = stmt.executeQuery();
+			if (rs != null && rs.next()) {
+				a = new Activity(
+						rs.getInt("id"),
+						rs.getString("name"),
+						rs.getString("description"),
+						rs.getBoolean("teacheable")
+				);
+			}
+		} catch (SQLException ex) {
+			ex.printStackTrace();
+		} finally {
+			try {
+				if (rs != null) rs.close();
+				if (stmt != null) stmt.close();
+				DbConnector.getInstancia().releaseConn();
+			} catch (SQLException ex) {
+				ex.printStackTrace();
+			}
+		}
+		return a;
+	}
+
+	public ArrayList<Activity> getByPlan(int idPlan) {
+		PreparedStatement stmt = null;
+		ResultSet rs = null;
+		ArrayList<Activity> activities = new ArrayList<Activity>();
+		try {
+			stmt = DbConnector.getInstancia().getConn()
+					.prepareStatement("select a.* from activity a "
+							+ "inner join plan_activity pa on a.id = pa.id_activity "
+							+ "where pa.id_plan = ?");
+			stmt.setInt(1, idPlan);
+			rs = stmt.executeQuery();
+			if (rs != null) {
+				while (rs.next()) {
+					Activity a = new Activity(
+							rs.getInt("id"),
+							rs.getString("name"),
+							rs.getString("description"),
+							rs.getBoolean("teacheable")
+					);
+					activities.add(a);
+				}
+			}
+		} catch (SQLException ex) {
+			ex.printStackTrace();
+		} finally {
+			try {
+				if (rs != null) rs.close();
+				if (stmt != null) stmt.close();
+				DbConnector.getInstancia().releaseConn();
+			} catch (SQLException ex) {
+				ex.printStackTrace();
+			}
+		}
+		return activities;
+	}
+
+	public ArrayList<Activity> getNonTeacheable() {
+		PreparedStatement stmt = null;
+		ResultSet rs = null;
+		ArrayList<Activity> activities = new ArrayList<Activity>();
+		try {
+			stmt = DbConnector.getInstancia().getConn()
+					.prepareStatement("select id, name, description, teacheable from activity where teacheable = False");
+			rs = stmt.executeQuery();
+			if (rs != null) {
+				while (rs.next()) {
+					Activity a = new Activity(
+							rs.getInt("id"),
+							rs.getString("name"),
+							rs.getString("description"),
+							rs.getBoolean("teacheable")
+					);
+					activities.add(a);
+				}
+			}
+		} catch (SQLException ex) {
+			ex.printStackTrace();
+		} finally {
+			try {
+				if (rs != null) rs.close();
+				if (stmt != null) stmt.close();
+				DbConnector.getInstancia().releaseConn();
+			} catch (SQLException ex) {
+				ex.printStackTrace();
+			}
+		}
+		return activities;
+	}
 }

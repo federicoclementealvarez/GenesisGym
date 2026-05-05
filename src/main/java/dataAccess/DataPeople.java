@@ -2,8 +2,46 @@ package dataAccess;
 import entities.*;
 import java.sql.*;
 import java.time.LocalDate;
+import java.util.ArrayList;
 
 public class DataPeople {
+
+	public ArrayList<People> getInscribedInClass(int idClass) {
+		PreparedStatement stmt = null;
+		ResultSet rs = null;
+		ArrayList<People> attendants = new ArrayList<People>();
+		try {
+			stmt = DbConnector.getInstancia().getConn()
+					.prepareStatement("select p.dni, p.name, p.lastname, p.phone_number "
+							+ "from people p "
+							+ "inner join people_class pc on p.dni = pc.dni_people "
+							+ "where pc.id_class = ?");
+			stmt.setInt(1, idClass);
+			rs = stmt.executeQuery();
+			if (rs != null) {
+				while (rs.next()) {
+					People p = new People(
+						rs.getInt("dni"),
+						rs.getString("name"),
+						rs.getString("lastname"),
+						rs.getString("phone_number")
+					);
+					attendants.add(p);
+				}
+			}
+		} catch (SQLException ex) {
+			ex.printStackTrace();
+		} finally {
+			try {
+				if (rs != null) { rs.close(); }
+				if (stmt != null) { stmt.close(); }
+				DbConnector.getInstancia().releaseConn();
+			} catch (SQLException ex) {
+				ex.printStackTrace();
+			}
+		}
+		return attendants;
+	}
 
 	public People getByDniAndPass (People p) {
 		PreparedStatement stmt = null;

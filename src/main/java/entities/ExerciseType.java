@@ -18,6 +18,12 @@ public class ExerciseType {
 		this.name = name;
 	}
 	
+	public ExerciseType(int id, String name, String description) {
+		this.id = id;
+		this.name = name;
+		this.description = description;
+	}
+	
 	public ExerciseType(int id) {
 		this.id = id;
 	}

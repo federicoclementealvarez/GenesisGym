@@ -12,6 +12,17 @@ public class Class {
 	private Activity activity;
 	private LinkedList<People> attendants;
 	
+	public Class() {}
+
+	public Class(int id, String day, LocalTime beginHour, LocalTime endHour, People teacher, Activity activity) {
+		this.id = id;
+		this.day = day;
+		this.beginHour = beginHour;
+		this.endHour = endHour;
+		this.teacher = teacher;
+		this.activity = activity;
+	}
+	
 	public int getId() {
 		return id;
 	}

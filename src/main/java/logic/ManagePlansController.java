@@ -11,7 +11,7 @@ public class ManagePlansController {
 	
 	public ArrayList<Activity> getActivitiesByPlan(Plan plan) {
 		da = new DataActivity();
-		return(da.getByPlan(plan));
+		return(da.getByPlan(plan.getId()));
 	}
 	
 }

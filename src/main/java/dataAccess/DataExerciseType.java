@@ -51,5 +51,102 @@ public class DataExerciseType {
 		}
 		return(exTypes);
 	}
-	
+
+	public ArrayList<ExerciseType> getAll() {
+		PreparedStatement stmt = null;
+		ResultSet rs = null;
+		ArrayList<ExerciseType> exTypes = new ArrayList<ExerciseType>();
+		try {
+			stmt = DbConnector.getInstancia().getConn()
+					.prepareStatement("select et.*, a.name activity_name from exercise_type et inner join activity a on a.id = et.id_activity");
+			rs = stmt.executeQuery();
+			if (rs != null) {
+				while (rs.next()) {
+					ExerciseType et = new ExerciseType(
+							rs.getInt("id"),
+							rs.getString("name"),
+							rs.getString("description")
+					);
+					exTypes.add(et);
+				}
+			}
+		} catch (SQLException ex) {
+			ex.printStackTrace();
+		} finally {
+			try {
+				if (rs != null) rs.close();
+				if (stmt != null) stmt.close();
+				DbConnector.getInstancia().releaseConn();
+			} catch (SQLException ex) {
+				ex.printStackTrace();
+			}
+		}
+		return exTypes;
+	}
+
+	public void insertOne(ExerciseType et, int idActivity) {
+		PreparedStatement stmt = null;
+		try {
+			stmt = DbConnector.getInstancia().getConn()
+					.prepareStatement("insert into exercise_type(name, description, id_activity) values(?,?,?)");
+			stmt.setString(1, et.getName());
+			stmt.setString(2, et.getDescription());
+			stmt.setInt(3, idActivity);
+			stmt.executeUpdate();
+		} catch (SQLException e) {
+			e.printStackTrace();
+		} finally {
+			try {
+				if (stmt != null) stmt.close();
+				DbConnector.getInstancia().releaseConn();
+			} catch (SQLException e) {
+				e.printStackTrace();
+			}
+		}
+	}
+
+	public boolean isUsed(int id) {
+		PreparedStatement stmt = null;
+		ResultSet rs = null;
+		boolean used = false;
+		try {
+			stmt = DbConnector.getInstancia().getConn()
+					.prepareStatement("select count(*) count from exercise where id_exercise_type = ?");
+			stmt.setInt(1, id);
+			rs = stmt.executeQuery();
+			if (rs != null && rs.next()) {
+				used = rs.getInt("count") > 0;
+			}
+		} catch (SQLException ex) {
+			ex.printStackTrace();
+		} finally {
+			try {
+				if (rs != null) rs.close();
+				if (stmt != null) stmt.close();
+				DbConnector.getInstancia().releaseConn();
+			} catch (SQLException ex) {
+				ex.printStackTrace();
+			}
+		}
+		return used;
+	}
+
+	public void deleteOne(int id) {
+		PreparedStatement stmt = null;
+		try {
+			stmt = DbConnector.getInstancia().getConn()
+					.prepareStatement("delete from exercise_type where id = ?");
+			stmt.setInt(1, id);
+			stmt.executeUpdate();
+		} catch (SQLException e) {
+			e.printStackTrace();
+		} finally {
+			try {
+				if (stmt != null) stmt.close();
+				DbConnector.getInstancia().releaseConn();
+			} catch (SQLException e) {
+				e.printStackTrace();
+			}
+		}
+	}
 }

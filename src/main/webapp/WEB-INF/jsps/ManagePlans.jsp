@@ -42,5 +42,8 @@
  		</ul>
 		</article>
 	</div>
+	<div class="buttonContainer" style="margin-top: 5%;">
+		<button type="button" onclick="window.location.href='ValidateUserServlet'" style="background-color: #607d8b; border-color: #607d8b;"><h5 id="buttonText">Volver al inicio</h5></button>
+	</div>
 </body>
 </html>
