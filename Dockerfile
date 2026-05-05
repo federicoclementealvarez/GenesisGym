@@ -20,7 +20,7 @@ RUN find /app/src -name "*.java" > sources.txt && \
     javac -cp "/app/lib/*" -d /app/classes @sources.txt
 
 # Stage 2: Runtime stage
-FROM tomcat:10.1-jdk17-slim
+FROM tomcat:10.1-jdk17-temurin
 
 # Remove default Tomcat webapps
 RUN rm -rf /usr/local/tomcat/webapps/*
