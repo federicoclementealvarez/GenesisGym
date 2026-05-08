@@ -37,7 +37,8 @@ public class DataExerciseType {
 			}
 		}
 		catch (SQLException ex){
-			ex.getStackTrace();
+			ex.printStackTrace();
+			throw new RuntimeException(ex);
 		}
 		finally {
 			try {
@@ -46,7 +47,8 @@ public class DataExerciseType {
 				DbConnector.getInstancia().releaseConn();
 			}
 			catch (SQLException ex) {
-				ex.getStackTrace();
+				ex.printStackTrace();
+				throw new RuntimeException(ex);
 			}
 		}
 		return(exTypes);
@@ -72,6 +74,7 @@ public class DataExerciseType {
 			}
 		} catch (SQLException ex) {
 			ex.printStackTrace();
+			throw new RuntimeException(ex);
 		} finally {
 			try {
 				if (rs != null) rs.close();
@@ -79,6 +82,7 @@ public class DataExerciseType {
 				DbConnector.getInstancia().releaseConn();
 			} catch (SQLException ex) {
 				ex.printStackTrace();
+				throw new RuntimeException(ex);
 			}
 		}
 		return exTypes;
@@ -95,12 +99,14 @@ public class DataExerciseType {
 			stmt.executeUpdate();
 		} catch (SQLException e) {
 			e.printStackTrace();
+			throw new RuntimeException(e);
 		} finally {
 			try {
 				if (stmt != null) stmt.close();
 				DbConnector.getInstancia().releaseConn();
 			} catch (SQLException e) {
 				e.printStackTrace();
+				throw new RuntimeException(e);
 			}
 		}
 	}
@@ -119,6 +125,7 @@ public class DataExerciseType {
 			}
 		} catch (SQLException ex) {
 			ex.printStackTrace();
+			throw new RuntimeException(ex);
 		} finally {
 			try {
 				if (rs != null) rs.close();
@@ -126,6 +133,7 @@ public class DataExerciseType {
 				DbConnector.getInstancia().releaseConn();
 			} catch (SQLException ex) {
 				ex.printStackTrace();
+				throw new RuntimeException(ex);
 			}
 		}
 		return used;
@@ -140,12 +148,14 @@ public class DataExerciseType {
 			stmt.executeUpdate();
 		} catch (SQLException e) {
 			e.printStackTrace();
+			throw new RuntimeException(e);
 		} finally {
 			try {
 				if (stmt != null) stmt.close();
 				DbConnector.getInstancia().releaseConn();
 			} catch (SQLException e) {
 				e.printStackTrace();
+				throw new RuntimeException(e);
 			}
 		}
 	}

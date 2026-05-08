@@ -42,7 +42,8 @@ public class DataExercise {
 			}
 		}
 		catch (SQLException ex){
-			ex.getStackTrace();
+			ex.printStackTrace();
+			throw new RuntimeException(ex);
 		}
 		finally {
 			try {
@@ -51,7 +52,8 @@ public class DataExercise {
 				DbConnector.getInstancia().releaseConn();
 			}
 			catch (SQLException ex) {
-				ex.getStackTrace();
+				ex.printStackTrace();
+				throw new RuntimeException(ex);
 			}
 		}
 		return(exercises);
@@ -67,12 +69,14 @@ public class DataExercise {
 			
 		}  catch (SQLException e) {
             e.printStackTrace();
+            throw new RuntimeException(e);
 		} finally {
             try {
                 if(stmt!=null)stmt.close();
                 DbConnector.getInstancia().releaseConn();
             } catch (SQLException e) {
             	e.printStackTrace();
+            	throw new RuntimeException(e);
             }
 		}
 	}
@@ -93,12 +97,14 @@ public class DataExercise {
 			
 		}  catch (SQLException e) {
             e.printStackTrace();
+            throw new RuntimeException(e);
 		} finally {
             try {
                 if(stmt!=null)stmt.close();
                 DbConnector.getInstancia().releaseConn();
             } catch (SQLException e) {
             	e.printStackTrace();
+            	throw new RuntimeException(e);
             }
 		}
 	}

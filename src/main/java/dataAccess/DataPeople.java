@@ -31,6 +31,7 @@ public class DataPeople {
 			}
 		} catch (SQLException ex) {
 			ex.printStackTrace();
+			throw new RuntimeException(ex);
 		} finally {
 			try {
 				if (rs != null) { rs.close(); }
@@ -38,6 +39,7 @@ public class DataPeople {
 				DbConnector.getInstancia().releaseConn();
 			} catch (SQLException ex) {
 				ex.printStackTrace();
+				throw new RuntimeException(ex);
 			}
 		}
 		return attendants;
@@ -74,7 +76,8 @@ public class DataPeople {
 			}
 		}
 		catch (SQLException ex){
-			ex.getStackTrace();
+			ex.printStackTrace();
+			throw new RuntimeException(ex);
 		}
 		finally {
 			try {
@@ -83,7 +86,8 @@ public class DataPeople {
 				DbConnector.getInstancia().releaseConn();
 			}
 			catch (SQLException ex) {
-				ex.getStackTrace();
+				ex.printStackTrace();
+				throw new RuntimeException(ex);
 			}
 		}
 		return(peopleFound);
@@ -107,7 +111,8 @@ public class DataPeople {
 			}
 		}
 		catch (SQLException ex){
-			ex.getStackTrace();
+			ex.printStackTrace();
+			throw new RuntimeException(ex);
 		}
 		finally {
 			try {
@@ -116,7 +121,8 @@ public class DataPeople {
 				DbConnector.getInstancia().releaseConn();
 			}
 			catch (SQLException ex) {
-				ex.getStackTrace();
+				ex.printStackTrace();
+				throw new RuntimeException(ex);
 			}
 		}
 		return(peopleFound);
@@ -137,7 +143,8 @@ public class DataPeople {
 			}
 		}
 		catch (SQLException ex){
-			ex.getStackTrace();
+			ex.printStackTrace();
+			throw new RuntimeException(ex);
 		}
 		finally {
 			try {
@@ -146,7 +153,8 @@ public class DataPeople {
 				DbConnector.getInstancia().releaseConn();
 			}
 			catch (SQLException ex) {
-				ex.getStackTrace();
+				ex.printStackTrace();
+				throw new RuntimeException(ex);
 			}
 		}
 		return(exists);
@@ -170,12 +178,14 @@ public class DataPeople {
 			
 		}  catch (SQLException e) {
             e.printStackTrace();
+            throw new RuntimeException(e);
 		} finally {
             try {
                 if(stmt!=null)stmt.close();
                 DbConnector.getInstancia().releaseConn();
             } catch (SQLException e) {
             	e.printStackTrace();
+            	throw new RuntimeException(e);
             }
 		}
 	}

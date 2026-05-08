@@ -22,7 +22,8 @@ public class DataPlan {
 			}
 		}
 		catch (SQLException ex){
-			ex.getStackTrace();
+			ex.printStackTrace();
+			throw new RuntimeException(ex);
 		}
 		finally {
 			try {
@@ -31,7 +32,8 @@ public class DataPlan {
 				DbConnector.getInstancia().releaseConn();
 			}
 			catch (SQLException ex) {
-				ex.getStackTrace();
+				ex.printStackTrace();
+				throw new RuntimeException(ex);
 			}
 		}
 		return(planFound);
@@ -54,7 +56,8 @@ public class DataPlan {
 			}
 		}
 		catch (SQLException ex){
-			ex.getStackTrace();
+			ex.printStackTrace();
+			throw new RuntimeException(ex);
 		}
 		finally {
 			try {
@@ -63,7 +66,8 @@ public class DataPlan {
 				DbConnector.getInstancia().releaseConn();
 			}
 			catch (SQLException ex) {
-				ex.getStackTrace();
+				ex.printStackTrace();
+				throw new RuntimeException(ex);
 			}
 		}
 		return(planFound);
@@ -107,7 +111,8 @@ public class DataPlan {
 			}
 		}
 		catch (SQLException ex){
-			ex.getStackTrace();
+			ex.printStackTrace();
+			throw new RuntimeException(ex);
 		}
 		finally {
 			try {
@@ -116,7 +121,8 @@ public class DataPlan {
 				DbConnector.getInstancia().releaseConn();
 			}
 			catch (SQLException ex) {
-				ex.getStackTrace();
+				ex.printStackTrace();
+				throw new RuntimeException(ex);
 			}
 		}
 		return(plans);
@@ -147,6 +153,7 @@ public class DataPlan {
 			}
 		} catch (SQLException e) {
 			e.printStackTrace();
+			throw new RuntimeException(e);
 		} finally {
 			try {
 				if (rs != null) rs.close();
@@ -154,6 +161,7 @@ public class DataPlan {
 				DbConnector.getInstancia().releaseConn();
 			} catch (SQLException e) {
 				e.printStackTrace();
+				throw new RuntimeException(e);
 			}
 		}
 	}
@@ -172,6 +180,7 @@ public class DataPlan {
 			}
 		} catch (SQLException ex) {
 			ex.printStackTrace();
+			throw new RuntimeException(ex);
 		} finally {
 			try {
 				if (rs != null) rs.close();
@@ -179,6 +188,7 @@ public class DataPlan {
 				DbConnector.getInstancia().releaseConn();
 			} catch (SQLException ex) {
 				ex.printStackTrace();
+				throw new RuntimeException(ex);
 			}
 		}
 		return used;
@@ -199,12 +209,14 @@ public class DataPlan {
 			stmt.executeUpdate();
 		} catch (SQLException e) {
 			e.printStackTrace();
+			throw new RuntimeException(e);
 		} finally {
 			try {
 				if (stmt != null) stmt.close();
 				DbConnector.getInstancia().releaseConn();
 			} catch (SQLException e) {
 				e.printStackTrace();
+				throw new RuntimeException(e);
 			}
 		}
 	}

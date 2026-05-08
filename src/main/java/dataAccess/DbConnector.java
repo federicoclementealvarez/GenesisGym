@@ -21,6 +21,7 @@ public class DbConnector {
 			Class.forName(driver);
 		} catch (ClassNotFoundException e) {
 			e.printStackTrace();
+			throw new RuntimeException(e);
 		}
 	}
 	
@@ -39,6 +40,7 @@ public class DbConnector {
 			}
 		} catch (SQLException e) {
 			e.printStackTrace();
+			throw new RuntimeException(e);
 		}
 		conectados++;
 		return conn;
@@ -52,6 +54,7 @@ public class DbConnector {
 			}
 		} catch (SQLException e) {
 			e.printStackTrace();
+			throw new RuntimeException(e);
 		}
 	}
 }

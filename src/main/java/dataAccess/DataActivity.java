@@ -30,6 +30,7 @@ public class DataActivity {
 			}
 		} catch (SQLException ex) {
 			ex.printStackTrace();
+			throw new RuntimeException(ex);
 		} finally {
 			try {
 				if (rs != null) rs.close();
@@ -37,6 +38,7 @@ public class DataActivity {
 				DbConnector.getInstancia().releaseConn();
 			} catch (SQLException ex) {
 				ex.printStackTrace();
+				throw new RuntimeException(ex);
 			}
 		}
 		return activities;
@@ -63,6 +65,7 @@ public class DataActivity {
 			}
 		} catch (SQLException ex) {
 			ex.printStackTrace();
+			throw new RuntimeException(ex);
 		} finally {
 			try {
 				if (rs != null) rs.close();
@@ -70,6 +73,7 @@ public class DataActivity {
 				DbConnector.getInstancia().releaseConn();
 			} catch (SQLException ex) {
 				ex.printStackTrace();
+				throw new RuntimeException(ex);
 			}
 		}
 		return activities;
@@ -94,6 +98,7 @@ public class DataActivity {
 			}
 		} catch (SQLException ex) {
 			ex.printStackTrace();
+			throw new RuntimeException(ex);
 		} finally {
 			try {
 				if (rs != null) rs.close();
@@ -101,6 +106,7 @@ public class DataActivity {
 				DbConnector.getInstancia().releaseConn();
 			} catch (SQLException ex) {
 				ex.printStackTrace();
+				throw new RuntimeException(ex);
 			}
 		}
 		return a;
@@ -130,6 +136,7 @@ public class DataActivity {
 			}
 		} catch (SQLException ex) {
 			ex.printStackTrace();
+			throw new RuntimeException(ex);
 		} finally {
 			try {
 				if (rs != null) rs.close();
@@ -137,6 +144,7 @@ public class DataActivity {
 				DbConnector.getInstancia().releaseConn();
 			} catch (SQLException ex) {
 				ex.printStackTrace();
+				throw new RuntimeException(ex);
 			}
 		}
 		return activities;
@@ -163,6 +171,7 @@ public class DataActivity {
 			}
 		} catch (SQLException ex) {
 			ex.printStackTrace();
+			throw new RuntimeException(ex);
 		} finally {
 			try {
 				if (rs != null) rs.close();
@@ -170,6 +179,7 @@ public class DataActivity {
 				DbConnector.getInstancia().releaseConn();
 			} catch (SQLException ex) {
 				ex.printStackTrace();
+				throw new RuntimeException(ex);
 			}
 		}
 		return activities;

@@ -38,7 +38,8 @@ public class DataRoutine {
 			}
 		}
 		catch (SQLException ex){
-			ex.getStackTrace();
+			ex.printStackTrace();
+			throw new RuntimeException(ex);
 		}
 		finally {
 			try {
@@ -47,7 +48,8 @@ public class DataRoutine {
 				DbConnector.getInstancia().releaseConn();
 			}
 			catch (SQLException ex) {
-				ex.getStackTrace();
+				ex.printStackTrace();
+				throw new RuntimeException(ex);
 			}
 		}
 		return(routines);
@@ -65,12 +67,14 @@ public class DataRoutine {
 			
 		}  catch (SQLException e) {
             e.printStackTrace();
+            throw new RuntimeException(e);
 		} finally {
             try {
                 if(stmt!=null)stmt.close();
                 DbConnector.getInstancia().releaseConn();
             } catch (SQLException e) {
             	e.printStackTrace();
+            	throw new RuntimeException(e);
             }
 		}
 	}
@@ -85,12 +89,14 @@ public class DataRoutine {
 			
 		}  catch (SQLException e) {
             e.printStackTrace();
+            throw new RuntimeException(e);
 		} finally {
             try {
                 if(stmt!=null)stmt.close();
                 DbConnector.getInstancia().releaseConn();
             } catch (SQLException e) {
             	e.printStackTrace();
+            	throw new RuntimeException(e);
             }
 		}
 	}

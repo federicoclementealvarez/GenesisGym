@@ -52,6 +52,7 @@ public class DataClass {
 			}
 		} catch (SQLException ex) {
 			ex.printStackTrace();
+			throw new RuntimeException(ex);
 		} finally {
 			try {
 				if (rs != null) { rs.close(); }
@@ -59,6 +60,7 @@ public class DataClass {
 				DbConnector.getInstancia().releaseConn();
 			} catch (SQLException ex) {
 				ex.printStackTrace();
+				throw new RuntimeException(ex);
 			}
 		}
 		return classes;
@@ -94,6 +96,7 @@ public class DataClass {
 			}
 		} catch (SQLException ex) {
 			ex.printStackTrace();
+			throw new RuntimeException(ex);
 		} finally {
 			try {
 				if (rs != null) { rs.close(); }
@@ -101,6 +104,7 @@ public class DataClass {
 				DbConnector.getInstancia().releaseConn();
 			} catch (SQLException ex) {
 				ex.printStackTrace();
+				throw new RuntimeException(ex);
 			}
 		}
 		return classes;
@@ -120,6 +124,7 @@ public class DataClass {
 			}
 		} catch (SQLException ex) {
 			ex.printStackTrace();
+			throw new RuntimeException(ex);
 		} finally {
 			try {
 				if (rs != null) rs.close();
@@ -127,6 +132,7 @@ public class DataClass {
 				DbConnector.getInstancia().releaseConn();
 			} catch (SQLException ex) {
 				ex.printStackTrace();
+				throw new RuntimeException(ex);
 			}
 		}
 		return has;
@@ -141,12 +147,14 @@ public class DataClass {
 			stmt.executeUpdate();
 		} catch (SQLException e) {
 			e.printStackTrace();
+			throw new RuntimeException(e);
 		} finally {
 			try {
 				if (stmt != null) stmt.close();
 				DbConnector.getInstancia().releaseConn();
 			} catch (SQLException e) {
 				e.printStackTrace();
+				throw new RuntimeException(e);
 			}
 		}
 	}
@@ -164,12 +172,14 @@ public class DataClass {
 			stmt.executeUpdate();
 		} catch (SQLException e) {
 			e.printStackTrace();
+			throw new RuntimeException(e);
 		} finally {
 			try {
 				if (stmt != null) stmt.close();
 				DbConnector.getInstancia().releaseConn();
 			} catch (SQLException e) {
 				e.printStackTrace();
+				throw new RuntimeException(e);
 			}
 		}
 	}
@@ -184,12 +194,14 @@ public class DataClass {
 			stmt.executeUpdate();
 		} catch (SQLException e) {
 			e.printStackTrace();
+			throw new RuntimeException(e);
 		} finally {
 			try {
 				if (stmt != null) stmt.close();
 				DbConnector.getInstancia().releaseConn();
 			} catch (SQLException e) {
 				e.printStackTrace();
+				throw new RuntimeException(e);
 			}
 		}
 	}
@@ -204,12 +216,14 @@ public class DataClass {
 			stmt.executeUpdate();
 		} catch (SQLException e) {
 			e.printStackTrace();
+			throw new RuntimeException(e);
 		} finally {
 			try {
 				if (stmt != null) stmt.close();
 				DbConnector.getInstancia().releaseConn();
 			} catch (SQLException e) {
 				e.printStackTrace();
+				throw new RuntimeException(e);
 			}
 		}
 	}
@@ -256,6 +270,7 @@ public class DataClass {
 			}
 		} catch (SQLException ex) {
 			ex.printStackTrace();
+			throw new RuntimeException(ex);
 		} finally {
 			try {
 				if (rs != null) { rs.close(); }
@@ -263,6 +278,7 @@ public class DataClass {
 				DbConnector.getInstancia().releaseConn();
 			} catch (SQLException ex) {
 				ex.printStackTrace();
+				throw new RuntimeException(ex);
 			}
 		}
 		return classes;

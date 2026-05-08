@@ -32,6 +32,7 @@ public class DataFee {
 			}
 		} catch (SQLException ex) {
 			ex.printStackTrace();
+			throw new RuntimeException(ex);
 		} finally {
 			try {
 				if (rs != null) rs.close();
@@ -39,6 +40,7 @@ public class DataFee {
 				DbConnector.getInstancia().releaseConn();
 			} catch (SQLException ex) {
 				ex.printStackTrace();
+				throw new RuntimeException(ex);
 			}
 		}
 		return fees;
@@ -63,6 +65,7 @@ public class DataFee {
 			}
 		} catch (SQLException ex) {
 			ex.printStackTrace();
+			throw new RuntimeException(ex);
 		} finally {
 			try {
 				if (rs != null) rs.close();
@@ -70,6 +73,7 @@ public class DataFee {
 				DbConnector.getInstancia().releaseConn();
 			} catch (SQLException ex) {
 				ex.printStackTrace();
+				throw new RuntimeException(ex);
 			}
 		}
 		return f;
@@ -87,12 +91,14 @@ public class DataFee {
 			stmt.executeUpdate();
 		} catch (SQLException e) {
 			e.printStackTrace();
+			throw new RuntimeException(e);
 		} finally {
 			try {
 				if (stmt != null) stmt.close();
 				DbConnector.getInstancia().releaseConn();
 			} catch (SQLException e) {
 				e.printStackTrace();
+				throw new RuntimeException(e);
 			}
 		}
 	}
@@ -107,12 +113,14 @@ public class DataFee {
 			stmt.executeUpdate();
 		} catch (SQLException e) {
 			e.printStackTrace();
+			throw new RuntimeException(e);
 		} finally {
 			try {
 				if (stmt != null) stmt.close();
 				DbConnector.getInstancia().releaseConn();
 			} catch (SQLException e) {
 				e.printStackTrace();
+				throw new RuntimeException(e);
 			}
 		}
 	}
